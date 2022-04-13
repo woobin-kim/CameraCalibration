@@ -27,11 +27,14 @@
 *.lib
 
 # Thirdparty
-thirdparty/opencv/
+thirdparty/opencv/*
+thirdparty/eigen/*
 
 # Build
 build/*
+cmake-build-debug/*
+cmake-build-release/*
 
-# pycache
-scripts/thirdparty_script/opencv/__pycache__/
-
+# Python cache
+**/__pycache__/
+*.pyc

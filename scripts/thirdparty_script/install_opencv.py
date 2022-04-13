@@ -1,11 +1,13 @@
 import os
 import multiprocessing
 
+
 class install_opencv:
-    def __init__(self, version, password, pwd):
-        self.pwd = pwd
-        self.dir = "./thirdparty/opencv"
+    def __init__(self, d, version, password, pwd):
+        self.d = d
         self.version = version
+        self.dir = "./thirdparty/opencv"
+        self.pwd = pwd
         self.pw = password
     
     def run(self):
@@ -27,7 +29,9 @@ class install_opencv:
 
         # CMake options
         exec_string = "cmake ../opencv-" + self.version
-        exec_string += " -DCMAKE_BUILD_TYPE=Debug"
+
+        if self.d: 
+            exec_string += " -DCMAKE_BUILD_TYPE=Debug"
 
         ret = os.system(exec_string)
         if ret != 0:
